@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manish Website</title>
+    <style>
+        /* 🔹 Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* 🔹 Header Styling */
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        header img {
+            border-radius: 10px;
+        }
+
+        header a {
+            color: yellow;
+            font-weight: bold;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        /* 🔹 Main Content Styling */
+        main {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        /* 🔹 Section Styling */
+        section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        /* 🔹 Article Styling */
+        article p {
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        /* 🔹 Feedback Form Styling */
+        form {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        textarea, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* 🔹 Video Section */
+        video {
+        width=300;
+        height=auto;
+            display: block;
+            margin: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="image.jpg" height="100" width="200" alt="image">
+        <h1>WELCOME HERE GUYS</h1>
+        <a href="#business">Business</a>
+        <a href="#feedback">Feedback</a>
+        <a href="#video">Video</a>
+    </header>
+
+    <main>
+        <section id="business">
+            <h3>Let's Discuss About Business</h3>
+            <article>
+                <p>Business is the backbone of any economy, driving innovation, employment, and economic growth. It encompasses a wide range of activities, from small local enterprises to multinational corporations.</p>
+
+                <p>A successful business requires strategic planning, effective management, and adaptability to changing market conditions. Entrepreneurs play a crucial role in business by identifying opportunities, taking risks, and creating value through goods and services.</p>
+
+                <p>Technology has revolutionized the business landscape, enabling companies to reach global markets, streamline operations, and enhance customer experiences.</p>
+            </article>
+        </section>
+
+        <section id="feedback">
+            <h3>Feedback</h3>
+            <form>
+                <label for="feedback">Your Feedback:</label>
+                <textarea name="message" id="feedback" rows="6" required></textarea>
+
+                <label for="country">Select Country:</label>
+                <select id="country" name="country">
+                    <option>India</option>
+                    <option>America</option>
+                </select>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section id="video">
+            <h3>Watch the Video</h3>
+            <video width="300" controls>
+                <source src="afgan.mp4" type="video/mp4">
+                आपका ब्राउज़र इस वीडियो को सपोर्ट नहीं करता।
+            </video>
+        </section>
+    </main>
+
+</body>
+</html>
