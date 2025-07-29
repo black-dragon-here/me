@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Black Dragon | Portfolio</title>
+  <style>
+    /* 🌑 Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    body {
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #111;
+      text-align: center;
+      padding: 30px 10px;
+      box-shadow: 0 0 10px #000;
+    }
+
+    header img {
+      border-radius: 10px;
+      width: 200px;
+    }
+
+    header h1 {
+      margin-top: 10px;
+      font-size: 22px;
+      color: #ccc;
+    }
+
+    header a {
+      display: inline-block;
+      margin: 10px 10px;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: #222;
+      text-decoration: none;
+      border-radius: 5px;
+      box-shadow: 0 4px #0e0e0e;
+      font-weight: bold;
+      transform: perspective(1px) translateZ(0);
+    }
+
+    header a:active {
+      transform: scale(0.96);
+      box-shadow: 0 2px #0e0e0e;
+    }
+
+    main {
+      width: 90%;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #2a2a2a;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #000;
+    }
+
+    section {
+      margin-bottom: 40px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 20px;
+    }
+
+    h3 {
+      color: #f9f9f9;
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    article p {
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    form {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    textarea, select, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    textarea, select {
+      background-color: #444;
+      color: #fff;
+    }
+
+    button {
+      background-color: #55b03b6a;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px #0b5c47;
+    }
+
+    button:hover {
+      background-color: #14c97d;
+    }
+
+    button:active {
+      transform: scale(0.95);
+      box-shadow: 0 2px #0b5c47;
+    }
+
+    video {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #444;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      box-shadow: 0 4px #222;
+    }
+
+    .download-btn:hover {
+      background-color: #666;
+    }
+
+    .download-btn:active {
+      transform: scale(0.96);
+      box-shadow: 0 2px #222;
+    }
+
+    .link-container {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .link-container a {
+      padding: 12px 24px;
+      background-color: #111;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 6px #000;
+      transform: translateY(0);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .link-container a:hover {
+      background-color: #222;
+    }
+
+    .link-container a:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px #000;
+    }
+    
+    
+    
+    #projects {
+    background-color: #1e1e1e;
+    padding: 40px 20px;
+    color: white;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+.section-heading {
+    text-align: center;
+    font-size: 2em;
+    color: #ccc;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px black;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.project-card {
+    background-color: #2c2c2c;
+    width: 300px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,255,255,0.2);
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.project-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #00c2c2;
+    color: #1e1e1e;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 2px 2px 8px rgba(0, 255, 255, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.3s;
+}
+
+.project-card a:hover {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: inset 1px 1px 10px rgba(0,255,255,0.6);
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="img.jpg" alt="Profile">
+    <h1>Black Dragon | Web Developer</h1>
+    <a href="#business">Business</a>
+    <a href="#feedback">Feedback</a>
+    <a href="#video">Video</a>
+  </header>
+
+  <main>
+      <!-- projects -->
+      <section id="projects">
+    <h3 class="section-heading">My Projects</h3>
+    <div class="projects-container">
+        <div class="project-card">
+            <img src="project1.jpg" alt="Project 1">
+            <h4>Project One</h4>
+            <p>A short description about this amazing project.</p>
+            <a href="https://black-dragon-here.github.io/my-Website/animation.html" target="_blank">View Project</a>
+        </div>
+        <div class="project-card">
+            <img src="project2.jpg" alt="Project 2">
+            <h4>Project Two</h4>
+            <p>This one was made using HTML, CSS & JavaScript.</p>
+            <a href="https://black-dragon-here.github.io/my-Website/animation.html" target="_blank">View Project</a>
+        </div>
+    </div>
+</section>
+      <!-- other -->
+    <section id="business">
+      <h3>Let's Discuss About Business</h3>
+      <article>
+        <p>Business is the backbone of any economy, driving innovation, employment, and economic growth.</p>
+        <p>A successful business requires strategic planning, effective management, and adaptability to changing market conditions.</p>
+        <p>Technology has revolutionized the business landscape, enabling companies to reach global markets and streamline operations.</p>
+      </article>
+    </section>
+
+    <section id="feedback">
+      <h3>Feedback</h3>
+      <form>
+        <label for="feedback">Your Feedback:</label>
+        <textarea id="feedback" rows="6" required></textarea>
+
+        <label for="country">Select Country:</label>
+        <select id="country">
+          <option>India</option>
+          <option>USA</option>
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section id="video">
+      <h3>Watch the Video</h3>
+
+      <video controls>
+        <source src="afgan.mp4" type="video/mp4">
+        आपका ब्राउज़र इस वीडियो को सपोर्ट नहीं करता।
+      </video>
+
+      <br>
+      <a href="afgan.mp4" download class="download-btn">Download Video</a>
+
+      <div class="link-container">
+        <a href="img.html">River</a>
+        <a href="animation.html">Animation</a>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
