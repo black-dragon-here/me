@@ -91,7 +91,7 @@
       border-radius: 8px;
     }
 
-    textarea, select, button {
+    textarea, select, button, input {
       width: 100%;
       margin-top: 10px;
       padding: 12px;
@@ -100,7 +100,7 @@
       font-size: 16px;
     }
 
-    textarea, select {
+    textarea, select, input {
       background-color: #444;
       color: #fff;
     }
@@ -110,6 +110,7 @@
       color: white;
       font-weight: bold;
       box-shadow: 0 4px #0b5c47;
+      cursor: pointer;
     }
 
     button:hover {
@@ -119,6 +120,13 @@
     button:active {
       transform: scale(0.95);
       box-shadow: 0 2px #0b5c47;
+    }
+
+    .success-message {
+      color: #4CAF50;
+      text-align: center;
+      margin-top: 10px;
+      display: none;
     }
 
     video {
@@ -281,7 +289,13 @@
 
     <section id="feedback">
       <h3>Feedback</h3>
-      <form>
+      <form id="feedbackForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" required>
+        
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" required>
+
         <label for="feedback">Your Feedback:</label>
         <textarea id="feedback" rows="6" required></textarea>
 
@@ -289,9 +303,11 @@
         <select id="country">
           <option>India</option>
           <option>USA</option>
+          <option>Other</option>
         </select>
 
-        <button type="submit">Submit</button>
+        <button type="submit">Submit Feedback</button>
+        <div class="success-message" id="successMessage">✅ Feedback saved successfully!</div>
       </form>
     </section>
 
@@ -316,6 +332,56 @@
   <div style="display:none;">
     web develeper web devloper blak dragon black dragan bisness buisness bussiness portfolo web development business website developer
   </div>
+
+  <script>
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const feedback = document.getElementById('feedback').value;
+      const country = document.getElementById('country').value;
+      
+      const feedbackData = {
+        name: name,
+        email: email,
+        feedback: feedback,
+        country: country,
+        timestamp: new Date().toLocaleString()
+      };
+      
+      // Save to localStorage (temporary storage)
+      let allFeedback = JSON.parse(localStorage.getItem('websiteFeedback')) || [];
+      allFeedback.push(feedbackData);
+      localStorage.setItem('websiteFeedback', JSON.stringify(allFeedback));
+      
+      // Show success message
+      document.getElementById('successMessage').style.display = 'block';
+      
+      // Reset form
+      document.getElementById('feedbackForm').reset();
+      
+      // Hide success message after 3 seconds
+      setTimeout(() => {
+        document.getElementById('successMessage').style.display = 'none';
+      }, 3000);
+      
+      // Download as file (optional)
+      downloadFeedbackFile(feedbackData);
+    });
+    
+    function downloadFeedbackFile(data) {
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `feedback_${Date.now()}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  </script>
 
 </body>
 </html>
